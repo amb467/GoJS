@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+	<meta name="description" content="Interactive flowchart diagram implemented by GoJS in JavaScript for HTML."/> 
+	<link rel="stylesheet" href="gojs/assets/css/style.css"/> 
+	<!-- Copyright 1998-2021 by Northwoods Software Corporation. -->
+	<title>Dialog Builder</title>
+	<script src="gojs/release/go.js"></script>
+	<script src="js/dialog.js"></script>
+</head>
+
+<body>
+	<div class="md:flex flex-col md:flex-row md:min-h-screen w-full max-w-screen-xl mx-auto">
+		<div class="p-4 w-full">
+			<div id="sample">
+				<div style="width: 100%; display: flex; justify-content: space-between">
+  					<div id="myPaletteDiv" style="width: 100px; margin-right: 2px; background-color: #282c34;"></div>
+  					<div id="myDiagramDiv" style="flex-grow: 1; height: 750px; background-color: #282c34;"></div>
+				</div>
+			
+				<button id="SaveButton" onclick="save()">Save</button>
+				<button onclick="load()">Load</button>
+				Diagram Model saved in JSON format:
+				<textarea id="mySavedModel" style="width:100%;height:300px">
+{ "class": "GraphLinksModel",
+  "linkFromPortIdProperty": "fromPort",
+  "linkToPortIdProperty": "toPort",
+  "nodeDataArray": [
+{"key":-1,"category":"Start","loc":"124 -521","text":"Start"},
+{"category":"Robot","text":"Hi, I'm Marty.  How are you?","key":-2,"loc":"123.38000106811523 -407.875"},
+{"category":"User","text":"I am Sally","key":-3,"loc":"-27.5 -297"},
+{"category":"User","text":"I don't know","key":-4,"loc":"258.5 -298"},
+{"category":"Robot","text":"Hi Sally!  Should we code?","key":-5,"loc":"-24.5 -191"},
+{"category":"Robot","text":"That's sad.  Should we code?","key":-6,"loc":"283.5 -189"},
+{"category":"User","text":"Yes","key":-7,"loc":"10.5 -69"},
+{"category":"User","text":"No","key":-8,"loc":"198.38000106811523 -73.875"},
+{"category":"End","text":"End","key":-9,"loc":"102.5 17"}
+],
+  "linkDataArray": [
+{"from":-1,"to":-2,"fromPort":"B","toPort":"T","points":[124,-484.25,124,-474.25,124,-458.8752243041992,123.38000106811523,-458.8752243041992,123.38000106811523,-443.5004486083984,123.38000106811523,-433.5004486083984]},
+{"from":-2,"to":-3,"fromPort":"B","toPort":"T","points":[123.38000106811523,-382.2495513916015,123.38000106811523,-372.2495513916015,123.38000106811523,-348.46863784790037,-27.5,-348.46863784790037,-27.5,-324.6877243041992,-27.5,-314.6877243041992]},
+{"from":-2,"to":-4,"fromPort":"B","toPort":"T","points":[123.38000106811523,-382.2495513916015,123.38000106811523,-372.2495513916015,123.38000106811523,-348.96863784790037,258.5,-348.96863784790037,258.5,-325.6877243041992,258.5,-315.6877243041992]},
+{"from":-3,"to":-5,"fromPort":"B","toPort":"T","points":[-27.5,-279.3122756958008,-27.5,-269.3122756958008,-27.5,-247.96886215209963,-24.5,-247.96886215209963,-24.5,-226.62544860839844,-24.5,-216.62544860839844]},
+{"from":-4,"to":-6,"fromPort":"B","toPort":"T","points":[258.5,-280.3122756958008,258.5,-270.3122756958008,258.5,-247.46886215209963,283.5,-247.46886215209963,283.5,-224.62544860839844,283.5,-214.62544860839844]},
+{"from":-5,"to":-7,"fromPort":"B","toPort":"T","points":[-24.5,-165.37455139160159,-24.5,-155.37455139160159,-24.5,-126.0311378479004,10.5,-126.0311378479004,10.5,-96.68772430419922,10.5,-86.68772430419922]},
+{"from":-5,"to":-8,"fromPort":"B","toPort":"T","points":[-24.5,-165.37455139160159,-24.5,-155.37455139160159,-24.5,-128.4686378479004,198.38000106811523,-128.4686378479004,198.38000106811523,-101.56272430419922,198.38000106811523,-91.56272430419922]},
+{"from":-6,"to":-7,"fromPort":"B","toPort":"T","points":[283.5,-163.37455139160159,283.5,-153.37455139160159,283.5,-125.0311378479004,10.5,-125.0311378479004,10.5,-96.68772430419922,10.5,-86.68772430419922]},
+{"from":-6,"to":-8,"fromPort":"B","toPort":"T","points":[283.5,-163.37455139160159,283.5,-153.37455139160159,283.5,-127.4686378479004,198.38000106811523,-127.4686378479004,198.38000106811523,-101.56272430419922,198.38000106811523,-91.56272430419922]},
+{"from":-7,"to":-9,"fromPort":"B","toPort":"T","points":[10.5,-51.312275695800786,10.5,-41.312275695800786,10.5,-33.031137847900396,102.5,-33.031137847900396,102.5,-24.75,102.5,-14.75]},
+{"from":-8,"to":-9,"fromPort":"B","toPort":"T","points":[198.38000106811523,-56.18727569580079,198.38000106811523,-46.18727569580079,198.38000106811523,-35.468637847900396,102.5,-35.468637847900396,102.5,-24.75,102.5,-14.75]}
+]}
+</textarea>
+				<button onclick="printDiagram()">Print Diagram Using SVG</button>
+			</div>
+    	</div>
+	</div>
+</body>
+</html>
